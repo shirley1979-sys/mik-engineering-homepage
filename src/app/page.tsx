@@ -690,11 +690,7 @@ export default async function Home() {
                     </div>
                     <div>
                       <div className="text-white/40 text-[11px] font-bold tracking-widest uppercase mb-1">이메일</div>
-                      <div className="text-white text-sm font-medium leading-relaxed">
-                        영업 {content.contactEmailSales}
-                        <br />
-                        설계 {content.contactEmailDesign}
-                      </div>
+                      <div className="text-white text-sm font-medium leading-relaxed">{content.contactEmail}</div>
                     </div>
                   </div>
                   <div className="flex gap-4 items-start">
