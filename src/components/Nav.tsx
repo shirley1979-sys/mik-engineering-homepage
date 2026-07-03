@@ -32,19 +32,18 @@ export default function Nav() {
           <div
             className="relative w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg"
             style={{
-              border: '1px solid rgba(34,211,238,0.2)',
-              boxShadow: '0 0 16px rgba(34,211,238,0.08)',
-              background: 'rgba(14,30,51,0.8)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              background: 'rgba(14,30,51,0.9)',
             }}
           >
-            <span className="text-[#22d3ee] font-black text-lg">M</span>
+            <span className="text-white font-black text-lg">M</span>
           </div>
           <div className="leading-none">
             <div className="flex items-baseline gap-1.5">
               <span className="font-black text-white text-xl tracking-tight">MIK</span>
               <span
                 className="text-[11px] font-bold tracking-[1.5px] uppercase px-1.5 py-0.5 rounded"
-                style={{ color: '#22d3ee', background: 'rgba(34,211,238,0.1)', border: '1px solid rgba(34,211,238,0.2)' }}
+                style={{ color: '#f87171', background: 'rgba(196,30,30,0.12)', border: '1px solid rgba(196,30,30,0.25)' }}
               >
                 Engineering
               </span>

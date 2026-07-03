@@ -99,63 +99,48 @@ export default async function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src="https://cdn.prod.website-files.com/658e2a8b1ee35e8b177f94b3/6652e2bfbe84e1595c93f2ed_664ddaba7aca1dbf00216354_AMR.webp"
-              alt="AMR 자율주행로봇 스마트팩토리"
+              src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=1920&q=80&fm=jpg&fit=crop"
+              alt="스마트 팩토리 자동화 생산라인"
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center opacity-60"
+              className="object-cover object-center"
             />
           </div>
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(5,13,26,0.88) 0%, rgba(5,13,26,0.72) 50%, rgba(5,13,26,0.55) 100%)',
+                'linear-gradient(to right, rgba(5,13,26,0.92) 0%, rgba(5,13,26,0.8) 45%, rgba(5,13,26,0.62) 100%)',
             }}
           />
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to top, rgba(5,13,26,0.95) 0%, transparent 40%)' }}
-          />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px)',
-              backgroundSize: '64px 64px',
-            }}
+            style={{ background: 'linear-gradient(to top, rgba(5,13,26,0.9) 0%, transparent 35%)' }}
           />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 py-28 md:py-40 w-full">
             <FadeIn>
               <div
                 className="inline-flex items-center gap-2 mb-10 px-4 py-1.5 rounded-full border"
-                style={{ background: 'rgba(34,211,238,0.08)', borderColor: 'rgba(34,211,238,0.3)' }}
+                style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.16)' }}
               >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22d3ee' }} />
-                <span className="text-[11px] font-bold tracking-[3px] uppercase" style={{ color: '#22d3ee' }}>
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#c41e1e' }} />
+                <span className="text-[11px] font-bold tracking-[3px] uppercase" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   {content.heroBadge}
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={100}>
-              <h1 className="text-6xl md:text-7xl lg:text-[90px] font-black text-white leading-[1.05] tracking-tight mb-4">
-                기술의{' '}
-                <span
-                  className="text-transparent bg-clip-text"
-                  style={{ backgroundImage: 'linear-gradient(135deg, #22d3ee 0%, #818cf8 55%, #c084fc 100%)' }}
-                >
-                  초격차
-                </span>
-                를<br />
+              <h1 className="text-5xl md:text-6xl lg:text-[76px] font-black text-white leading-[1.12] tracking-tight mb-6">
+                기술의 <span style={{ color: '#e53e3e' }}>초격차</span>를<br />
                 설계하다
               </h1>
             </FadeIn>
             <FadeIn delay={150}>
               <p
-                className="text-lg font-semibold tracking-widest mb-8 uppercase"
-                style={{ color: 'rgba(255,255,255,0.25)' }}
+                className="text-sm font-semibold tracking-widest mb-8 uppercase"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
               >
                 Designing the Technological Edge
               </p>
@@ -213,7 +198,7 @@ export default async function Home() {
         </section>
 
         {/* Stats */}
-        <section style={{ background: '#070f1a', borderTop: '1px solid rgba(34,211,238,0.1)' }}>
+        <section style={{ background: '#070f1a', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4">
               {STATS.map((stat) => (
@@ -224,7 +209,7 @@ export default async function Home() {
                 >
                   <div
                     className="text-[10px] font-bold tracking-[3px] uppercase mb-3"
-                    style={{ color: 'rgba(34,211,238,0.5)' }}
+                    style={{ color: 'rgba(255,255,255,0.35)' }}
                   >
                     {stat.label}
                   </div>
@@ -249,17 +234,9 @@ export default async function Home() {
             <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
               <FadeIn>
                 <div className="relative">
-                  <div
-                    className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 z-10 rounded-tl-sm"
-                    style={{ borderColor: '#22d3ee' }}
-                  />
-                  <div
-                    className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 z-10 rounded-br-sm"
-                    style={{ borderColor: '#22d3ee' }}
-                  />
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                     <Image
-                      src="https://pidora.ca/wp-content/uploads/2025/12/factory-to-home-robotics-bridge-feature.jpeg"
+                      src="https://images.unsplash.com/photo-1752614671052-92e18f534db1?w=1200&q=80&fm=jpg&fit=crop"
                       alt="MIK 엔지니어링 공장 자동화"
                       fill
                       sizes="500px"
@@ -385,7 +362,7 @@ export default async function Home() {
                 className="hidden md:block absolute top-14 left-[12.5%] right-[12.5%] h-px"
                 style={{
                   background:
-                    'linear-gradient(90deg, rgba(196,30,30,0.0) 0%, rgba(196,30,30,0.25) 20%, rgba(34,211,238,0.4) 50%, rgba(196,30,30,0.25) 80%, rgba(196,30,30,0.0) 100%)',
+                    'linear-gradient(90deg, rgba(196,30,30,0.0) 0%, rgba(196,30,30,0.3) 50%, rgba(196,30,30,0.0) 100%)',
                 }}
               />
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
@@ -445,13 +422,13 @@ export default async function Home() {
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(34,211,238,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.025) 1px, transparent 1px)',
+                'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
               backgroundSize: '48px 48px',
             }}
           />
           <div className="relative z-10 max-w-6xl mx-auto px-6">
             <FadeIn className="mb-16">
-              <span className="text-[11px] font-bold tracking-[3px] uppercase block mb-3" style={{ color: 'rgba(34,211,238,0.6)' }}>
+              <span className="text-[11px] font-bold tracking-[3px] uppercase block mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
                 Government Support
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">정부과제 공급기업</h2>
@@ -468,7 +445,7 @@ export default async function Home() {
                     className="rounded-2xl p-7 transition-all duration-300 relative overflow-hidden h-full"
                     style={{ background: 'rgba(14,30,51,0.6)', border: '1px solid rgba(255,255,255,0.07)' }}
                   >
-                    <div className="text-[11px] font-bold tracking-[2px] mb-4" style={{ color: 'rgba(34,211,238,0.4)' }}>
+                    <div className="text-[11px] font-bold tracking-[2px] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
                       {String(i + 1).padStart(2, '0')}
                     </div>
                     <div
@@ -543,17 +520,16 @@ export default async function Home() {
                   badge: '공식 대리점 · AMR',
                   desc: '유진로봇 자율주행로봇(AMR) 공식 대리점. GoCart 전 제품군 판매 및 주변장치 설계·납품.',
                   tags: ['GoCart 180', 'GoCart 250', 'GoCart 500/1000', 'GoCart 200 Omni'],
-                  accent: '#22d3ee',
-                  image:
-                    'https://cdn.prod.website-files.com/658e2a8b1ee35e8b177f94b3/6652e2bfbe84e1595c93f2ed_664ddaba7aca1dbf00216354_AMR.webp',
+                  accent: '#0e1e33',
+                  image: 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?w=800&q=80&fm=jpg&fit=crop',
                 },
                 {
                   name: 'UNIVERSAL ROBOTS',
                   badge: '공식 SI 파트너 · 협동로봇',
                   desc: 'Universal Robots 공식 System Integrator. 협동로봇 도입·통합 자동화 시스템 구축.',
                   tags: ['UR3e', 'UR5e', 'UR10e', 'UR16e', 'UR20', 'UR30'],
-                  accent: '#818cf8',
-                  image: 'https://rozitek.com/wp-content/uploads/2023/05/collaborative-robot-rozitek-knight-robot.webp',
+                  accent: '#c41e1e',
+                  image: 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=800&q=80&fm=jpg&fit=crop',
                 },
               ].map((partner, i) => (
                 <FadeIn key={partner.name} delay={i * 100}>

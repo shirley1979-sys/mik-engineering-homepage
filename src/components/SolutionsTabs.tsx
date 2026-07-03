@@ -17,8 +17,7 @@ const CARDS = [
     title: 'AMR + Sliding Fork 주변장치',
     desc: '유진로봇 GoCart 기반 매거진 자율 이송 시스템. 컨셉·설계·조립·설치 전 과정 수행.',
     tags: ['GoCart', 'Sliding Fork', '자율주행'],
-    image:
-      'https://cdn.prod.website-files.com/658e2a8b1ee35e8b177f94b3/6652e2bfbe84e1595c93f2ed_664ddaba7aca1dbf00216354_AMR.webp',
+    image: 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?w=800&q=80&fm=jpg&fit=crop',
     alt: 'AMR + Sliding Fork 주변장치',
   },
   {
@@ -27,8 +26,7 @@ const CARDS = [
     title: 'AMR + Trolley 이송 시스템',
     desc: 'GoCart + Trolley 조합으로 공장 내 자율 이송 완전 자동화.',
     tags: ['GoCart', 'Trolley', 'AMR'],
-    image:
-      'https://image.made-in-china.com/202f0j00SIuMWcAsiwoZ/New-Design-High-Performance-Under-Drive-Lifting-AMR-Robot-with-1500kg-Payload.webp',
+    image: 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=800&q=80&fm=jpg&fit=crop',
     alt: 'AMR + Trolley 이송 시스템',
   },
   {
@@ -37,7 +35,7 @@ const CARDS = [
     title: 'AGV — 반도체 FOUB 이송',
     desc: '반도체 클린룸 환경 최적화 FOUB 이송 AGV. 조립·설치 수행.',
     tags: ['AGV', '반도체', '클린룸'],
-    image: 'https://rozitek.com/wp-content/uploads/2023/05/collaborative-robot-rozitek-knight-robot.webp',
+    image: 'https://images.unsplash.com/photo-1752614671052-92e18f534db1?w=800&q=80&fm=jpg&fit=crop',
     alt: 'AGV — 반도체 FOUB 이송',
   },
 ]
@@ -58,9 +56,8 @@ export default function SolutionsTabs() {
               active === tab.id
                 ? {
                     background: 'linear-gradient(135deg, #0e1e33, #1a3557)',
-                    border: '1px solid rgba(34,211,238,0.3)',
-                    color: '#22d3ee',
-                    boxShadow: '0 0 20px rgba(34,211,238,0.1)',
+                    border: '1px solid rgba(196,30,30,0.4)',
+                    color: '#f87171',
                   }
                 : {
                     background: 'rgba(255,255,255,0.04)',
@@ -89,7 +86,7 @@ export default function SolutionsTabs() {
               <Image src={card.image} alt={card.alt} fill sizes="400px" className="object-cover" />
             </div>
             <div className="p-5">
-              <div className="text-[10px] font-black tracking-[2px] uppercase mb-2.5" style={{ color: '#22d3ee' }}>
+              <div className="text-[10px] font-black tracking-[2px] uppercase mb-2.5" style={{ color: '#f87171' }}>
                 {card.client}
               </div>
               <h3 className="text-white font-bold text-base mb-2 leading-snug">{card.title}</h3>
@@ -102,9 +99,9 @@ export default function SolutionsTabs() {
                     key={tag}
                     className="text-[11px] px-2.5 py-1 rounded-full font-medium"
                     style={{
-                      background: 'rgba(34,211,238,0.07)',
-                      border: '1px solid rgba(34,211,238,0.15)',
-                      color: 'rgba(34,211,238,0.7)',
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      color: 'rgba(255,255,255,0.55)',
                     }}
                   >
                     {tag}
