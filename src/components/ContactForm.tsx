@@ -11,18 +11,37 @@ const INQUIRY_TYPES = [
   '기타 산업 자동화',
 ]
 
-export default function ContactForm() {
-  const [sent, setSent] = useState(false)
+type Status = 'idle' | 'submitting' | 'success' | 'error'
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>('idle')
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const form = new FormData(e.currentTarget)
-    const subject = encodeURIComponent(`[프로젝트 문의] ${form.get('company')} - ${form.get('category')}`)
-    const body = encodeURIComponent(
-      `담당자: ${form.get('name')}\n연락처: ${form.get('phone')}\n이메일: ${form.get('email')}\n문의 분야: ${form.get('category')}\n\n문의 내용:\n${form.get('message')}`
-    )
-    window.location.href = `mailto:onetwo34@hanmail.net?subject=${subject}&body=${body}`
-    setSent(true)
+    const form = e.currentTarget
+    const data = new FormData(form)
+    setStatus('submitting')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          company: data.get('company'),
+          name: data.get('name'),
+          phone: data.get('phone'),
+          email: data.get('email'),
+          category: data.get('category'),
+          message: data.get('message'),
+        }),
+      })
+
+      if (!res.ok) throw new Error('submit failed')
+      setStatus('success')
+      form.reset()
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputClass =
@@ -82,10 +101,16 @@ export default function ContactForm() {
         </div>
         <button
           type="submit"
-          className="w-full py-4 rounded-xl font-bold text-[15px] transition-all hover:-translate-y-0.5 bg-brand hover:bg-red-700 text-white hover:shadow-xl hover:shadow-brand/30"
+          disabled={status === 'submitting'}
+          className="w-full py-4 rounded-xl font-bold text-[15px] transition-all hover:-translate-y-0.5 bg-brand hover:bg-red-700 text-white hover:shadow-xl hover:shadow-brand/30 disabled:opacity-60 disabled:hover:translate-y-0"
         >
-          {sent ? '메일 앱이 열렸습니다 ✓' : '문의 보내기 →'}
+          {status === 'submitting' ? '전송 중...' : status === 'success' ? '문의가 접수되었습니다 ✓' : '문의 보내기 →'}
         </button>
+        {status === 'error' && (
+          <p className="text-red-400 text-xs text-center">
+            전송에 실패했습니다. 잠시 후 다시 시도하시거나 onetwo34@hanmail.net으로 메일 부탁드립니다.
+          </p>
+        )}
       </form>
     </div>
   )
