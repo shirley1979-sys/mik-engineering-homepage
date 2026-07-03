@@ -3,13 +3,18 @@ import FadeIn from '@/components/FadeIn'
 import Nav from '@/components/Nav'
 import SolutionsTabs from '@/components/SolutionsTabs'
 import ContactForm from '@/components/ContactForm'
+import { getSiteContent } from '@/lib/content'
 
-const STATS = [
-  { label: 'YEAR', value: '10+', title: '창립', sub: '법인전환 2016년' },
-  { label: 'PROJECTS', value: '50+', title: '납품 프로젝트', sub: '설계부터 설치 턴키' },
-  { label: 'CLIENTS', value: '20+', title: '주요 고객사', sub: '대기업 협력사 다수' },
-  { label: 'DOMAINS', value: '4개', title: '전문 사업분야', sub: 'AMR · 2차전지 · 디스플레이 · 기타' },
-]
+export const dynamic = 'force-dynamic'
+
+function buildStats(content: Awaited<ReturnType<typeof getSiteContent>>) {
+  return [
+    { label: 'YEAR', value: content.statYear, title: '창립', sub: '법인전환 2016년' },
+    { label: 'PROJECTS', value: content.statProjects, title: '납품 프로젝트', sub: '설계부터 설치 턴키' },
+    { label: 'CLIENTS', value: content.statClients, title: '주요 고객사', sub: '대기업 협력사 다수' },
+    { label: 'DOMAINS', value: content.statDomains, title: '전문 사업분야', sub: 'AMR · 2차전지 · 디스플레이 · 기타' },
+  ]
+}
 
 const SCOPE_STEPS = [
   {
@@ -78,7 +83,10 @@ const HISTORY = [
   { year: '2024', title: '검사 고도화', items: ['2차전지 / CT 검사기', '2차전지 / Notching 물류'] },
 ]
 
-export default function Home() {
+export default async function Home() {
+  const content = await getSiteContent()
+  const STATS = buildStats(content)
+
   return (
     <>
       <Nav />
@@ -127,7 +135,7 @@ export default function Home() {
               >
                 <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22d3ee' }} />
                 <span className="text-[11px] font-bold tracking-[3px] uppercase" style={{ color: '#22d3ee' }}>
-                  AI · Smart Factory · Automation
+                  {content.heroBadge}
                 </span>
               </div>
             </FadeIn>
@@ -154,12 +162,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-lg leading-relaxed mb-12 max-w-2xl" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                2차 전지부터 스마트 팩토리까지,{' '}
-                <strong style={{ color: 'rgba(255,255,255,0.85)' }} className="font-semibold">
-                  세상을 움직이는 턴키 솔루션.
-                </strong>
-                <br />
-                단순한 장비 공급을 넘어, 고객의 생산 수율을 극대화하는 최적의 시스템 레이아웃을 제공합니다.
+                {content.heroDescription}
               </p>
             </FadeIn>
             <FadeIn delay={250}>
@@ -293,17 +296,7 @@ export default function Home() {
                   <p className="text-sm font-semibold tracking-wider mb-6" style={{ color: 'rgba(14,30,51,0.35)' }}>
                     Your Yield Rate Is Our Pride
                   </p>
-                  <p className="text-gray-500 leading-relaxed text-[15px] mb-8">
-                    <strong className="text-navy font-semibold">MIK</strong>는{' '}
-                    <strong className="text-navy font-semibold">Mobility Industry Korea</strong>의 약자입니다. 2014년
-                    설립 이래 2차전지·디스플레이 등 산업분야에서 자동화 장비 및 물류 시스템{' '}
-                    <strong className="text-navy font-semibold">턴키 공급</strong>을 비즈니스 모델로 운영하고
-                    있습니다.
-                    <br />
-                    <br />
-                    AI 기술이 필수가 되는 시대에, 협동로봇·AMR 등 최신 솔루션으로 고객의 제조 및 물류 환경을
-                    최적화하기 위해 끊임없이 노력합니다.
-                  </p>
+                  <p className="text-gray-500 leading-relaxed text-[15px] mb-8">{content.aboutDescription}</p>
                 </FadeIn>
 
                 <FadeIn delay={100}>
@@ -705,9 +698,9 @@ export default function Home() {
                     <div>
                       <div className="text-white/40 text-[11px] font-bold tracking-widest uppercase mb-1">이메일</div>
                       <div className="text-white text-sm font-medium leading-relaxed">
-                        영업 onetwo34@hanmail.net
+                        영업 {content.contactEmailSales}
                         <br />
-                        설계 smk70@hanmail.net
+                        설계 {content.contactEmailDesign}
                       </div>
                     </div>
                   </div>
@@ -725,9 +718,9 @@ export default function Home() {
                     <div>
                       <div className="text-white/40 text-[11px] font-bold tracking-widest uppercase mb-1">주소</div>
                       <div className="text-white text-sm font-medium leading-relaxed">
-                        경기도 화성시 향남읍 만년로 151번길 44-30 나동
+                        {content.contactAddress1}
                         <br />
-                        향남IC → MIK : 4.4km (10분)
+                        {content.contactAddress2}
                       </div>
                     </div>
                   </div>
@@ -749,9 +742,9 @@ export default function Home() {
               MIK<span className="text-brand">.</span>
             </div>
             <div className="text-white/30 text-xs leading-relaxed">
-              (주)엠아이케이엔지니어링&nbsp;&nbsp;|&nbsp;&nbsp;대표이사 석승호
+              (주)엠아이케이엔지니어링&nbsp;&nbsp;|&nbsp;&nbsp;대표이사 {content.footerCeo}
               <br />
-              경기도 화성시 향남읍 만년로 151번길 44-30 나동
+              {content.contactAddress1}
             </div>
           </div>
           <div className="flex flex-col items-start md:items-end gap-3">

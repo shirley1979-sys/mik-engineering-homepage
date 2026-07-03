@@ -15,5 +15,11 @@ model Inquiry {
   email     String?
   category  String
   message   String
+  status    String   @default("NEW")
   createdAt DateTime @default(now())
+}
+
+model SiteSetting {
+  key   String @id
+  value String
 }
