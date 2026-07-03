@@ -24,7 +24,6 @@ const SCOPE_STEPS = [
     title: '기구설계',
     en: 'Mechanical Design',
     desc: 'System Layout · Machine Concept · 3D Modeling',
-    paths: ['M12 2L2 7l10 5 10-5-10-5z', 'M2 7v10l10 5V12', 'M22 7v10l-10 5V12'],
   },
   {
     no: '02',
@@ -32,9 +31,6 @@ const SCOPE_STEPS = [
     title: '검증',
     en: 'Verification',
     desc: 'Strength Calculation · Structural Analysis · Simulation',
-    paths: [
-      'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    ],
   },
   {
     no: '03',
@@ -42,9 +38,6 @@ const SCOPE_STEPS = [
     title: '제작',
     en: 'Manufacturing',
     desc: 'Production · Quality Control · Testing',
-    paths: [
-      'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',
-    ],
   },
   {
     no: '04',
@@ -52,13 +45,93 @@ const SCOPE_STEPS = [
     title: '설치',
     en: 'Installation',
     desc: 'On-site Setup · Commissioning · A/S',
-    paths: [
-      'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1',
-      'M9 21v-5a1 1 0 011-1h2a1 1 0 011 1v5h-4z',
-      'M16.5 16.5l2.5 2.5m0-4l-4 4',
-    ],
   },
 ]
+
+function renderScopeIcon(index: number) {
+  if (index === 0) {
+    return (
+      <div className="text-white/80 group-hover:text-white transition-colors animate-[spin_9s_linear_infinite]" style={{ transformOrigin: '50% 50%' }}>
+        <svg className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.3}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L3 6.5v11L12 22l9-4.5v-11L12 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 6.5L12 11m0 0l9-4.5M12 11v11" opacity={0.6} />
+          <circle cx="12" cy="11" r="1.4" fill="currentColor" stroke="none" />
+        </svg>
+      </div>
+    )
+  }
+  if (index === 1) {
+    return (
+      <div className="relative flex items-center justify-center text-white/80 group-hover:text-white transition-colors">
+        <span
+          className="absolute w-14 h-14 rounded-full border-2 animate-ping"
+          style={{ borderColor: 'rgba(196,30,30,0.4)', animationDuration: '2.2s' }}
+        />
+        <svg className="w-9 h-9 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4}>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M5.618 4.016A11.955 11.955 0 0012 1.944a11.955 11.955 0 006.382 2.072A12.02 12.02 0 0121 6c0 5.591-3.824 10.29-9 11.622C6.824 16.29 3 11.591 3 6c0-.69.076-1.362.218-2.016z"
+          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 10.5l2 2 4-4.5" />
+        </svg>
+      </div>
+    )
+  }
+  if (index === 2) {
+    return (
+      <div className="relative w-9 h-9 text-white/80 group-hover:text-white transition-colors">
+        <svg
+          className="w-9 h-9 absolute inset-0 animate-[spin_7s_linear_infinite]"
+          style={{ transformOrigin: '50% 50%' }}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.4}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+        <svg
+          className="w-4 h-4 absolute -bottom-1 -right-1 animate-[spin_4s_linear_infinite_reverse]"
+          style={{ transformOrigin: '50% 50%' }}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.6}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      </div>
+    )
+  }
+  return (
+    <div className="relative text-white/80 group-hover:text-white transition-colors">
+      <svg className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 21V9l6-4 6 4v12M4 21h16M4 21v-8h4M16 21v-8h4v8M10 13h4M10 17h4"
+        />
+      </svg>
+      <span
+        className="absolute -bottom-1 -right-1.5 w-4 h-4 rounded-full flex items-center justify-center animate-pulse"
+        style={{ background: '#c41e1e' }}
+      >
+        <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </span>
+    </div>
+  )
+}
 
 const GOV_CARDS = [
   {
@@ -393,13 +466,7 @@ export default async function Home() {
                             className="object-cover"
                           />
                         ) : (
-                          <div className="text-white/80 group-hover:text-white transition-colors">
-                            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                              {step.paths.map((d) => (
-                                <path key={d} strokeLinecap="round" strokeLinejoin="round" d={d} />
-                              ))}
-                            </svg>
-                          </div>
+                          renderScopeIcon(i)
                         )}
                       </div>
                       <div className="text-[10px] font-bold tracking-[2px] text-brand/60 uppercase mb-2">{step.no}</div>
