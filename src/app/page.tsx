@@ -597,7 +597,7 @@ export default async function Home() {
               <p className="text-gray-500 text-base max-w-lg">공식 대리점 및 SI 파트너 자격으로 최신 로봇 솔루션을 제공합니다.</p>
             </FadeIn>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {[
                 {
                   name: 'YUJIN ROBOT',
