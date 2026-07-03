@@ -17,6 +17,11 @@ export const DEFAULT_CONTENT = {
   footerCeo: '석승호',
   logoUrl: '',
   aboutImageUrl: '',
+  scopeStep1ImageUrl: '',
+  scopeStep2ImageUrl: '',
+  scopeStep3ImageUrl: '',
+  scopeStep4ImageUrl: '',
+  scopeCtaLabel: '무료 견적 문의',
 } as const
 
 export type SiteContent = typeof DEFAULT_CONTENT
@@ -25,6 +30,10 @@ export type ContentKey = keyof SiteContent
 export const IMAGE_FIELDS: { key: ContentKey; label: string }[] = [
   { key: 'logoUrl', label: '로고 이미지' },
   { key: 'aboutImageUrl', label: '회사소개 이미지' },
+  { key: 'scopeStep1ImageUrl', label: '사업영역 01. 기구설계 이미지' },
+  { key: 'scopeStep2ImageUrl', label: '사업영역 02. 검증 이미지' },
+  { key: 'scopeStep3ImageUrl', label: '사업영역 03. 제작 이미지' },
+  { key: 'scopeStep4ImageUrl', label: '사업영역 04. 설치 이미지' },
 ]
 
 export const CONTENT_FIELDS: { key: ContentKey; label: string; multiline?: boolean }[] = [
@@ -35,6 +44,7 @@ export const CONTENT_FIELDS: { key: ContentKey; label: string; multiline?: boole
   { key: 'statClients', label: '통계 - 주요 고객사 수' },
   { key: 'statDomains', label: '통계 - 전문 사업분야 수' },
   { key: 'aboutDescription', label: '회사소개 본문', multiline: true },
+  { key: 'scopeCtaLabel', label: '사업영역 CTA 버튼 문구' },
   { key: 'contactEmailSales', label: '영업 이메일' },
   { key: 'contactEmailDesign', label: '설계 이메일' },
   { key: 'contactAddress1', label: '주소' },

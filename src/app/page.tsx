@@ -4,6 +4,7 @@ import Nav from '@/components/Nav'
 import SolutionsTabs from '@/components/SolutionsTabs'
 import ContactForm from '@/components/ContactForm'
 import { getSiteContent } from '@/lib/content'
+import { getHistoryEntries } from '@/lib/history'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,31 +20,43 @@ function buildStats(content: Awaited<ReturnType<typeof getSiteContent>>) {
 const SCOPE_STEPS = [
   {
     no: '01',
+    key: 'scopeStep1ImageUrl',
     title: '기구설계',
     en: 'Mechanical Design',
     desc: 'System Layout · Machine Concept · 3D Modeling',
-    path: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7',
+    paths: ['M12 2L2 7l10 5 10-5-10-5z', 'M2 7v10l10 5V12', 'M22 7v10l-10 5V12'],
   },
   {
     no: '02',
+    key: 'scopeStep2ImageUrl',
     title: '검증',
     en: 'Verification',
     desc: 'Strength Calculation · Structural Analysis · Simulation',
-    path: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    paths: [
+      'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    ],
   },
   {
     no: '03',
+    key: 'scopeStep3ImageUrl',
     title: '제작',
     en: 'Manufacturing',
     desc: 'Production · Quality Control · Testing',
-    path: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',
+    paths: [
+      'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',
+    ],
   },
   {
     no: '04',
+    key: 'scopeStep4ImageUrl',
     title: '설치',
     en: 'Installation',
     desc: 'On-site Setup · Commissioning · A/S',
-    path: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    paths: [
+      'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1',
+      'M9 21v-5a1 1 0 011-1h2a1 1 0 011 1v5h-4z',
+      'M16.5 16.5l2.5 2.5m0-4l-4 4',
+    ],
   },
 ]
 
@@ -71,21 +84,10 @@ const PARTNER_CLIENTS = [
   '셰플러코리아', '에실로코리아', '정식품',
 ]
 
-const HISTORY = [
-  { year: '2014', title: '창립', items: ['MIK Engineering 설립', '자동차 / 모터 조립 라인'] },
-  { year: '2016', title: '법인전환', items: ['제조공장 등록 (양감)', '법인사업자 전환'] },
-  { year: '2017', title: '2차전지 진출', items: ['디스플레이 / Encap 라인', '2차전지 / X-Ray 검사기'] },
-  { year: '2018', title: '물류 확장', items: ['2차전지 / Tap Welding · Stacking Conveyor 라인', '2차전지 / 셀추적 장비'] },
-  { year: '2019', title: '자동화 확대', items: ['2차전지 / JR Buffer 장비', '일반 / 용접자동화 장비'] },
-  { year: '2020–21', title: '디스플레이', items: ['2차전지 / JR Buffer · PP Box 틸팅기', '디스플레이 / 형광 UV 노광기'] },
-  { year: '2022', title: 'AMR 진출', items: ['일반 / AMR 주변장치 (스마트팩토리 본격 진출)'] },
-  { year: '2023', title: '대량 납품', items: ['2차전지 / JR Buffer 24대 납품'] },
-  { year: '2024', title: '검사 고도화', items: ['2차전지 / CT 검사기', '2차전지 / Notching 물류'] },
-]
-
 export default async function Home() {
   const content = await getSiteContent()
   const STATS = buildStats(content)
+  const HISTORY = await getHistoryEntries()
 
   return (
     <>
@@ -373,20 +375,32 @@ export default async function Home() {
                   <FadeIn key={step.no} delay={i * 100}>
                     <div className="group flex flex-col items-center text-center">
                       <div
-                        className="relative w-28 h-28 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-2"
+                        className="relative w-28 h-28 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-2 overflow-hidden"
                         style={{ background: 'linear-gradient(135deg, #0e1e33, #1a3557)', boxShadow: '0 8px 32px rgba(14,30,51,0.2)' }}
                       >
                         <div
-                          className="absolute -top-3 -right-3 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black text-white"
+                          className="absolute -top-3 -right-3 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black text-white z-10"
                           style={{ background: '#c41e1e', boxShadow: '0 4px 12px rgba(196,30,30,0.4)' }}
                         >
                           {step.no.replace('0', '')}
                         </div>
-                        <div className="text-white/80 group-hover:text-white transition-colors">
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d={step.path} />
-                          </svg>
-                        </div>
+                        {content[step.key as keyof typeof content] ? (
+                          <Image
+                            src={content[step.key as keyof typeof content]}
+                            alt={step.title}
+                            fill
+                            sizes="112px"
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="text-white/80 group-hover:text-white transition-colors">
+                            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                              {step.paths.map((d) => (
+                                <path key={d} strokeLinecap="round" strokeLinejoin="round" d={d} />
+                              ))}
+                            </svg>
+                          </div>
+                        )}
                       </div>
                       <div className="text-[10px] font-bold tracking-[2px] text-brand/60 uppercase mb-2">{step.no}</div>
                       <h3 className="text-navy font-black text-xl mb-1">{step.title}</h3>
@@ -412,7 +426,7 @@ export default async function Home() {
                   className="shrink-0 font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:-translate-y-0.5 whitespace-nowrap text-white"
                   style={{ background: '#c41e1e', boxShadow: '0 4px 20px rgba(196,30,30,0.4)' }}
                 >
-                  턴키 견적 문의 →
+                  {content.scopeCtaLabel} →
                 </a>
               </div>
             </FadeIn>

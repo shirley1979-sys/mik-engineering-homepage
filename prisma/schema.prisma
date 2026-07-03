@@ -23,3 +23,11 @@ model SiteSetting {
   key   String @id
   value String
 }
+
+model HistoryEntry {
+  id    String   @id @default(cuid())
+  year  String
+  title String
+  items String[]
+  order Int
+}

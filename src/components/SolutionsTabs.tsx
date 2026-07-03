@@ -21,7 +21,7 @@ const CARDS = [
     alt: 'AMR + Sliding Fork 주변장치',
   },
   {
-    tab: 'etc',
+    tab: 'smart',
     client: '셰플러코리아',
     title: 'AMR + Trolley 이송 시스템',
     desc: 'GoCart + Trolley 조합으로 공장 내 자율 이송 완전 자동화.',
@@ -30,7 +30,7 @@ const CARDS = [
     alt: 'AMR + Trolley 이송 시스템',
   },
   {
-    tab: 'etc',
+    tab: 'smart',
     client: '시너스텍',
     title: 'AGV — 반도체 FOUB 이송',
     desc: '반도체 클린룸 환경 최적화 FOUB 이송 AGV. 조립·설치 수행.',
@@ -72,14 +72,14 @@ export default function SolutionsTabs() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-5">
+      <div className="flex flex-wrap justify-center gap-5">
         {filtered.length === 0 && (
-          <p className="text-white/40 text-sm col-span-3">해당 분야 실적을 준비 중입니다.</p>
+          <p className="text-white/40 text-sm py-10">해당 분야 실적을 준비 중입니다.</p>
         )}
         {filtered.map((card) => (
           <div
             key={card.title}
-            className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+            className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 w-full md:w-[360px]"
             style={{ background: 'rgba(14,30,51,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             <div className="relative aspect-[16/9] overflow-hidden">
