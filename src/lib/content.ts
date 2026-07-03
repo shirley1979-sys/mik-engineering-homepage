@@ -10,7 +10,7 @@ export const DEFAULT_CONTENT = {
   statDomains: '4개',
   aboutDescription:
     'MIK는 Mobility Industry Korea의 약자입니다. 2014년 설립 이래 2차전지·디스플레이 등 산업분야에서 자동화 장비 및 물류 시스템 턴키 공급을 비즈니스 모델로 운영하고 있습니다. AI 기술이 필수가 되는 시대에, 협동로봇·AMR 등 최신 솔루션으로 고객의 제조 및 물류 환경을 최적화하기 위해 끊임없이 노력합니다.',
-  contactEmail: 'onetwo34@hanmail.net',
+  contactEmail: 'lsh@mikeng.co.kr',
   contactAddress1: '경기도 화성시 향남읍 만년로 151번길 44-30 나동',
   contactAddress2: '향남IC → MIK : 4.4km (10분)',
   footerCeo: '석승호',
