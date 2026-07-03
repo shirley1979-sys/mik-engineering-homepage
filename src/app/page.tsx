@@ -89,7 +89,7 @@ export default async function Home() {
 
   return (
     <>
-      <Nav />
+      <Nav logoUrl={content.logoUrl} />
       <main>
         {/* Hero */}
         <section
@@ -236,7 +236,10 @@ export default async function Home() {
                 <div className="relative">
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                     <Image
-                      src="https://images.unsplash.com/photo-1752614671052-92e18f534db1?w=1200&q=80&fm=jpg&fit=crop"
+                      src={
+                        content.aboutImageUrl ||
+                        'https://images.unsplash.com/photo-1752614671052-92e18f534db1?w=1200&q=80&fm=jpg&fit=crop'
+                      }
                       alt="MIK 엔지니어링 공장 자동화"
                       fill
                       sizes="500px"

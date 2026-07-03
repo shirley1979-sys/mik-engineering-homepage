@@ -15,10 +15,17 @@ export const DEFAULT_CONTENT = {
   contactAddress1: '경기도 화성시 향남읍 만년로 151번길 44-30 나동',
   contactAddress2: '향남IC → MIK : 4.4km (10분)',
   footerCeo: '석승호',
+  logoUrl: '',
+  aboutImageUrl: '',
 } as const
 
 export type SiteContent = typeof DEFAULT_CONTENT
 export type ContentKey = keyof SiteContent
+
+export const IMAGE_FIELDS: { key: ContentKey; label: string }[] = [
+  { key: 'logoUrl', label: '로고 이미지' },
+  { key: 'aboutImageUrl', label: '회사소개 이미지' },
+]
 
 export const CONTENT_FIELDS: { key: ContentKey; label: string; multiline?: boolean }[] = [
   { key: 'heroBadge', label: '히어로 상단 배지 문구' },

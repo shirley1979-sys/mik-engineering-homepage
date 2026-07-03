@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
@@ -11,7 +12,7 @@ const NAV_ITEMS = [
   { href: '#history', label: '연혁' },
 ]
 
-export default function Nav() {
+export default function Nav({ logoUrl }: { logoUrl?: string }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -36,7 +37,11 @@ export default function Nav() {
               background: 'rgba(14,30,51,0.9)',
             }}
           >
-            <span className="text-white font-black text-lg">M</span>
+            {logoUrl ? (
+              <Image src={logoUrl} alt="MIK Logo" fill sizes="40px" className="object-contain p-1" />
+            ) : (
+              <span className="text-white font-black text-lg">M</span>
+            )}
           </div>
           <div className="leading-none">
             <div className="flex items-baseline gap-1.5">

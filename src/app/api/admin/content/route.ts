@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getAdminSession } from '@/lib/adminAuth'
-import { CONTENT_FIELDS, getSiteContent, updateSiteContent, type ContentKey } from '@/lib/content'
+import { DEFAULT_CONTENT, getSiteContent, updateSiteContent, type ContentKey } from '@/lib/content'
 
 export async function GET() {
   if (!(await getAdminSession())) {
@@ -19,7 +19,7 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: '잘못된 요청입니다.' }, { status: 400 })
   }
 
-  const allowedKeys = new Set(CONTENT_FIELDS.map((f) => f.key))
+  const allowedKeys = new Set(Object.keys(DEFAULT_CONTENT))
   const partial: Partial<Record<ContentKey, string>> = {}
   for (const [key, value] of Object.entries(body)) {
     if (allowedKeys.has(key as ContentKey) && typeof value === 'string') {
