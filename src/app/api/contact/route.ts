@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { sendInquiryNotification } from '@/lib/mailer'
 
 const REQUIRED_FIELDS = ['company', 'name', 'phone', 'category', 'message'] as const
 
@@ -25,6 +26,12 @@ export async function POST(request: Request) {
       message: body.message,
     },
   })
+
+  try {
+    await sendInquiryNotification(inquiry)
+  } catch (error) {
+    console.error('Failed to send inquiry notification email', error)
+  }
 
   return NextResponse.json({ id: inquiry.id }, { status: 201 })
 }
