@@ -274,7 +274,7 @@ export default async function Home() {
 
         {/* Stats */}
         <section style={{ background: '#070f1a', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4">
               {STATS.map((stat) => (
                 <div
@@ -305,7 +305,7 @@ export default async function Home() {
 
         {/* About */}
         <section id="about" className="py-24 md:py-32 bg-white">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
               <FadeIn>
                 <div className="relative">
@@ -425,7 +425,7 @@ export default async function Home() {
 
         {/* Business Scope */}
         <section id="scope" className="py-24 md:py-32 bg-white overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <FadeIn className="mb-16">
               <span className="text-[11px] font-bold tracking-[3px] text-brand uppercase block mb-3">Business Scope</span>
               <h2 className="text-4xl md:text-5xl font-black text-navy tracking-tight mb-4">
@@ -510,7 +510,7 @@ export default async function Home() {
               backgroundSize: '48px 48px',
             }}
           />
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
             <FadeIn className="mb-16">
               <span className="text-[11px] font-bold tracking-[3px] uppercase block mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
                 Government Support
@@ -574,7 +574,7 @@ export default async function Home() {
 
         {/* Solutions */}
         <section id="solutions" className="py-24 md:py-32 relative overflow-hidden" style={{ background: '#070f1a' }}>
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
             <FadeIn className="mb-10">
               <span className="text-[11px] font-bold tracking-[3px] text-brand/80 uppercase block mb-3">Solutions</span>
               <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">산업별 자동화 솔루션</h2>
@@ -590,14 +590,14 @@ export default async function Home() {
 
         {/* Partners */}
         <section id="partners" className="py-24 md:py-32 bg-white">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <FadeIn className="mb-16">
               <span className="text-[11px] font-bold tracking-[3px] text-brand uppercase block mb-3">Partnership</span>
               <h2 className="text-4xl md:text-5xl font-black text-navy tracking-tight mb-4">공인 파트너십</h2>
               <p className="text-gray-500 text-base max-w-lg">공식 대리점 및 SI 파트너 자격으로 최신 로봇 솔루션을 제공합니다.</p>
             </FadeIn>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
                   name: 'YUJIN ROBOT',
@@ -677,7 +677,7 @@ export default async function Home() {
 
         {/* History */}
         <section id="history" className="py-24 md:py-32 bg-white">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-5xl mx-auto px-6">
             <FadeIn className="text-center mb-16">
               <span className="text-[11px] font-bold tracking-[3px] text-brand uppercase block mb-3">History</span>
               <h2 className="text-4xl md:text-5xl font-black text-navy tracking-tight">
@@ -733,7 +733,7 @@ export default async function Home() {
               backgroundSize: '48px 48px',
             }}
           />
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
               <FadeIn>
                 <span className="text-[11px] font-bold tracking-[3px] text-brand/80 uppercase block mb-3">Contact Us</span>
@@ -792,7 +792,7 @@ export default async function Home() {
       </main>
 
       <footer className="bg-[#070f1a] border-t border-white/5 py-10">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="font-black text-white text-lg tracking-tight mb-1">
               MIK<span className="text-brand">.</span>

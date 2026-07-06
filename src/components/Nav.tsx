@@ -28,7 +28,7 @@ export default function Nav({ logoUrl }: { logoUrl?: string }) {
         scrolled ? 'bg-navy-dark/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-3 group">
           <div
             className="relative w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg"
