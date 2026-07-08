@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { sendInquiryNotification } from '@/lib/mailer'
+import { getClientIp, rateLimit } from '@/lib/rateLimit'
 
 const REQUIRED_FIELDS = ['company', 'name', 'phone', 'category', 'message'] as const
 
 export async function POST(request: Request) {
+  const ip = getClientIp(request)
+  if (!rateLimit(`contact:${ip}`, 5, 10 * 60 * 1000)) {
+    return NextResponse.json({ error: '문의를 너무 많이 보내셨습니다. 잠시 후 다시 시도해주세요.' }, { status: 429 })
+  }
+
   const body = await request.json().catch(() => null)
 
   if (!body) {

@@ -1,7 +1,13 @@
 import { NextResponse } from 'next/server'
 import { ADMIN_SESSION_COOKIE, createSessionToken, verifyCredentials } from '@/lib/adminAuth'
+import { getClientIp, rateLimit } from '@/lib/rateLimit'
 
 export async function POST(request: Request) {
+  const ip = getClientIp(request)
+  if (!rateLimit(`login:${ip}`, 5, 10 * 60 * 1000)) {
+    return NextResponse.json({ error: '로그인 시도가 너무 많습니다. 잠시 후 다시 시도해주세요.' }, { status: 429 })
+  }
+
   const body = await request.json().catch(() => null)
   const username = typeof body?.username === 'string' ? body.username : ''
   const password = typeof body?.password === 'string' ? body.password : ''
