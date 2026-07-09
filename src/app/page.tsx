@@ -583,7 +583,7 @@ export default async function Home() {
               </p>
             </FadeIn>
             <FadeIn delay={100}>
-              <SolutionsTabs />
+              <SolutionsTabs content={content} />
             </FadeIn>
           </div>
         </section>
