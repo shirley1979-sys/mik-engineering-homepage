@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
 import { put } from '@vercel/blob'
 import { getAdminSession } from '@/lib/adminAuth'
-import { IMAGE_FIELDS } from '@/lib/content'
 
-const ALLOWED_KEYS = new Set(IMAGE_FIELDS.map((f) => f.key))
+const KEY_PATTERN = /^[a-zA-Z0-9_-]{1,64}$/
 const ALLOWED_TYPES = new Set(['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'])
 const MAX_SIZE = 5 * 1024 * 1024 // 5MB
 
@@ -16,7 +15,7 @@ export async function POST(request: Request) {
   const file = form?.get('file')
   const key = form?.get('key')
 
-  if (!(file instanceof File) || typeof key !== 'string' || !ALLOWED_KEYS.has(key as never)) {
+  if (!(file instanceof File) || typeof key !== 'string' || !KEY_PATTERN.test(key)) {
     return NextResponse.json({ error: '잘못된 요청입니다.' }, { status: 400 })
   }
   if (!ALLOWED_TYPES.has(file.type)) {

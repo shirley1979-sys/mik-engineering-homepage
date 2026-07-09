@@ -21,9 +21,6 @@ export const DEFAULT_CONTENT = {
   scopeStep3ImageUrl: '',
   scopeStep4ImageUrl: '',
   scopeCtaLabel: '무료 견적 문의',
-  batteryCard1ImageUrl: '',
-  batteryCard2ImageUrl: '',
-  batteryCard3ImageUrl: '',
 } as const
 
 export type SiteContent = typeof DEFAULT_CONTENT
@@ -36,9 +33,6 @@ export const IMAGE_FIELDS: { key: ContentKey; label: string }[] = [
   { key: 'scopeStep2ImageUrl', label: '사업영역 02. 검증 이미지' },
   { key: 'scopeStep3ImageUrl', label: '사업영역 03. 제작 이미지' },
   { key: 'scopeStep4ImageUrl', label: '사업영역 04. 설치 이미지' },
-  { key: 'batteryCard1ImageUrl', label: '솔루션 - 2차전지 01. Jelley Roll Stocker System 이미지' },
-  { key: 'batteryCard2ImageUrl', label: '솔루션 - 2차전지 02. Cell Tracking System 이미지' },
-  { key: 'batteryCard3ImageUrl', label: '솔루션 - 2차전지 03. 공정 연결물류 System 이미지' },
 ]
 
 export const CONTENT_FIELDS: { key: ContentKey; label: string; multiline?: boolean }[] = [

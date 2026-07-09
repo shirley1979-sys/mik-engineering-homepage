@@ -31,3 +31,14 @@ model HistoryEntry {
   items String[]
   order Int
 }
+
+model SolutionCard {
+  id       String   @id @default(cuid())
+  category String
+  client   String
+  title    String
+  desc     String
+  tags     String[]
+  imageUrl String
+  order    Int
+}

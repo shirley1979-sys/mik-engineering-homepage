@@ -29,6 +29,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                 콘텐츠 편집
               </a>
               <a
+                href="/admin/solutions"
+                className="text-white/70 hover:text-white text-sm px-3 py-2 rounded-lg hover:bg-white/10"
+              >
+                솔루션 편집
+              </a>
+              <a
                 href="/admin/history"
                 className="text-white/70 hover:text-white text-sm px-3 py-2 rounded-lg hover:bg-white/10"
               >

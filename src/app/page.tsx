@@ -5,6 +5,7 @@ import SolutionsTabs from '@/components/SolutionsTabs'
 import ContactForm from '@/components/ContactForm'
 import { getSiteContent } from '@/lib/content'
 import { getHistoryEntries } from '@/lib/history'
+import { getSolutionCards } from '@/lib/solutions'
 
 export const dynamic = 'force-dynamic'
 
@@ -161,6 +162,7 @@ export default async function Home() {
   const content = await getSiteContent()
   const STATS = buildStats(content)
   const HISTORY = await getHistoryEntries()
+  const SOLUTIONS = await getSolutionCards()
 
   return (
     <>
@@ -583,7 +585,7 @@ export default async function Home() {
               </p>
             </FadeIn>
             <FadeIn delay={100}>
-              <SolutionsTabs content={content} />
+              <SolutionsTabs cards={SOLUTIONS} />
             </FadeIn>
           </div>
         </section>
